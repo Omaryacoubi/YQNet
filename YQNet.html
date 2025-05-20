@@ -1,0 +1,254 @@
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YQNet</title>
+  <!-- Basis- und Theme-Stile -->
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.5; }
+    body { transition: background .3s, color .3s; background: #F5F7FA; color: #222; }
+    header, nav, footer { padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    nav ul { display: flex; gap: 1rem; list-style: none; }
+    nav a { padding: .5rem 1rem; border-radius: 4px; color: inherit; text-decoration: none; transition: background .2s; }
+    nav a.active, nav a:hover { background: #E6F0FA; }
+    main { padding: 2rem; max-width: 1100px; margin: auto; }
+    section { display: none; margin-bottom: 3rem; }
+    section.active { display: block; }
+    h1, h2, h3, h4 { margin-bottom: .5rem; }
+    .accent { color: #0066CC; }
+    .card { background: #fff; border: 1px solid #ddd; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; }
+    .code-block { position: relative; background: #f0f0f0; padding: 1rem; border-radius: 4px; font-family: monospace; overflow-x: auto; }
+    .copy-btn { position: absolute; top: .5rem; right: .5rem; background: none; border: none; cursor: pointer; }
+    .tool-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .tool-item img { width: 100%; height: auto; border-radius: 4px; margin-bottom: .5rem; }
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul { flex-direction: column; }
+      #world { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body class="light">
+
+  <nav>
+    <ul>
+      <li><a href="#intro" class="active">Einführung</a></li>
+      <li><a href="#hackers">Hacker-Typen</a></li>
+      <li><a href="#vulns">Schwachstellen</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#sim">Simulator</a></li>
+      <li><a href="#schutz">Schutz</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- 1. Einführung -->
+    <section id="intro" class="active">
+      <h2>Was ist <span class="accent">Cybersecurity</span>?</h2>
+      <p>Cybersecurity schützt IT-Systeme, Netzwerke und Daten vor Angriffen. Sie ist essenziell für Unternehmen, Privatpersonen und Behörden. Offene Lücken können zu Datenverlust, finanziellen Schäden und Reputationsverlust führen. Ein Angriff läuft häufig in Phasen ab: Aufklärung, Eindringen, Ausbreiten und Ausnutzen.</p>
+      <canvas id="chart" width="600" height="300"></canvas>
+    </section>
+
+
+    <section id="hackers">
+      <h2><span class="accent">White-Hat</span> vs. <span class="accent">Black-Hat</span> Hacker</h2>
+      <p><strong>White-Hats</strong> test(en) Systeme legal, finden und melden Schwachstellen. <strong>Grey-Hats</strong> hack(en) ohne Erlaubnis, meist ohne böse Absicht. <strong>Black-Hats</strong> nutzen Lücken für Diebstahl, Erpressung oder Zerstörung.</p>
+      <ul>
+        <li>White-Hat: Pentests, Bug-Bounty</li>
+        <li>Grey-Hat: Exploit ohne Permission</li>
+        <li>Black-Hat: Ransomware, Datendiebstahl</li>
+      </ul>
+    </section>
+
+    <!-- 3. Schwachstellen & Angriffe -->
+    <section id="vulns">
+      <h2>Schwachstellen & Angriffsarten</h2>
+      <div class="card">
+        <h3>Technische Schwachstellen</h3>
+        <ul>
+          <li> Veraltete Software</li>
+          <li> Offene Ports</li>
+          <li> Unsichere Passwörter</li>
+          <li> Unverschlüsselte Datenübertragung</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Menschliche Schwachstellen</h3>
+        <ul>
+          <li>Social Engineering</li>
+          <li>Phishing</li>
+          <li>Unachtsamkeit</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Beispiele für Angriffe</h3>
+        <h4>SQL-Injection</h4>
+        <h4>Cross-Site Scripting (XSS)</h4>
+        <h4>Man-in-the-Middle (MITM)</h4>
+        <p>Abfangen und Manipulieren von Datenpaketen zwischen Client und Server.</p>
+      </div>
+    </section>
+
+    <section id="tools">
+      <h2>Geräte & <span class="accent">Tools</span></h2>
+      <div class="tool-list">
+        <div class="tool-item card">
+          <img src="assets/images/flipper-zero.jpg" alt="Flipper Zero"/>
+          <h3>Flipper Zero</h3>
+          <p>Multitool für Funkprotokolle, RFID, IR und GPIO.</p>
+          <p><strong>Preis:</strong> €120</p>
+          <a href="https://flipperzero.one" target="_blank">Mehr erfahren</a>
+        </div>
+        <div class="tool-item card">
+          <img src="assets/images/raspberry-pi.jpg" alt="Raspberry Pi"/>
+          <h3>Raspberry Pi</h3>
+          <p>Kleiner Einplatinen-Computer für eigene Tools und Scripte.</p>
+          <p><strong>Preis:</strong> €35</p>
+          <a href="https://raspberrypi.org" target="_blank">Mehr erfahren</a>
+        </div>
+        <div class="tool-item card">
+          <img src="assets/images/hackrf-one.jpg" alt="HackRF One"/>
+          <h3>HackRF One</h3>
+          <p>Software-defined Radio für Frequenz-Scanning und Manipulation.</p>
+          <p><strong>Preis:</strong> €300</p>
+          <a href="https://greatscottgadgets.com/hackrf" target="_blank">Mehr erfahren</a>
+        </div>
+        <div class="tool-item card">
+          <img src="assets/images/lan-turtle.jpg" alt="LAN Turtle"/>
+          <h3>LAN Turtle</h3>
+          <p>Netzwerk-Backdoor in USB-Form für Pentests.</p>
+          <p><strong>Preis:</strong> €50</p>
+          <a href="https://hak5.org/products/lan-turtle" target="_blank">Mehr erfahren</a>
+        </div>
+        <div class="tool-item card">
+          <img src="assets/images/wifi-pineapple.jpg" alt="WiFi Pineapple"/>
+          <h3>WiFi Pineapple</h3>
+          <p>Professionelles Tool für Rogue-Access-Point-Angriffe.</p>
+          <p><strong>Preis:</strong> €200</p>
+          <a href="https://wifi-pineapple.com" target="_blank">Mehr erfahren</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Interaktiver Simulator -->
+    <section id="sim">
+      <h2>Interaktiver Hacking-Simulator</h2>
+      <p>Willkommen zu deiner ersten Mission: Knacke das WLAN-Passwort in einer sicheren Testumgebung. Alle Aktionen sind simuliert und nur für Bildungszwecke.</p>
+      <div id="world">
+        <img id="device" src="assets/images/device.png" alt="Hacking-Gerät" title="Klicke das Gerät an">
+        <img id="router" src="assets/images/router.png" alt="Router" title="Klicke den Router an">
+        <img id="laptop" src="assets/images/laptop.png" alt="Laptop" title="Klicke den Laptop an">
+      </div>
+      <div id="sim-output">Klicke zuerst auf das Hacking-Gerät.</div>
+      <button id="next-step" style="display:none;">Weiter</button>
+    </section>
+
+    <!-- 6. Schutz & Sicherheit -->
+    <section id="schutz">
+      <h2><span class="accent">Schutz</span> & Sicherheit</h2>
+      <p>Tipps, um dich und deine Daten zu schützen:</p>
+      <ul>
+        <li>Verwende einen Passwort-Manager (z.B. KeePass, Bitwarden)</li>
+        <li>Aktiviere Zwei-Faktor-Authentifizierung</li>
+        <li>Halte Software immer aktuell</li>
+        <li>Nutze VPN in öffentlichen Netzwerken</li>
+        <li>Öffne keine verdächtigen E-Mails/Links</li>
+      </ul>
+      <a href="YQNet-Checkliste.pdf" download>PDF-Download aller Tipps</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 YQNet – Alle Rechte vorbehalten</p>
+    <p><a href="/impressum.html">Impressum</a> | <a href="/datenschutz.html">Datenschutz</a></p>
+  </footer>
+
+  <!-- Externe Bibliotheken -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Funktionalitäten -->
+  <script>
+    // Navigation
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+        link.classList.add('active');
+        const target = link.getAttribute('href').slice(1);
+        document.querySelectorAll('main section').forEach(sec=>sec.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    // Theme Toggle
+    document.getElementById('toggle-theme').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      document.body.classList.toggle('light');
+    });
+
+    // Copy Buttons
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.nextElementSibling.textContent;
+        navigator.clipboard.writeText(code);
+        btn.textContent = '✔';
+        setTimeout(() => btn.textContent = 'Copy', 1000);
+      });
+    });
+
+    // Chart.js – Cyberangriffe 2000–2025 (Beispieldaten)
+    const ctx = document.getElementById('chart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: Array.from({ length: 26 }, (_, i) => 2000 + i),
+        datasets: [
+          { label: 'Banken', data: Array(26).fill().map(()=>Math.floor(Math.random()*200)), borderColor: '#0066CC', fill: false },
+          { label: 'Unternehmen', data: Array(26).fill().map(()=>Math.floor(Math.random()*500)), borderColor: '#FF6600', fill: false },
+          { label: 'Privatpersonen', data: Array(26).fill().map(()=>Math.floor(Math.random()*300)), borderColor: '#009900', fill: false }
+        ]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+    });
+
+    // Simulator-Logik
+    let step = 0;
+    const output = document.getElementById('sim-output');
+    const btnNext = document.getElementById('next-step');
+    const device = document.getElementById('device');
+    const router = document.getElementById('router');
+    const laptop = document.getElementById('laptop');
+
+    device.addEventListener('click', () => {
+      if (step === 0) {
+        output.textContent = 'Handshake erfasst! Klicke nun den Router.';
+        step = 1;
+      }
+    });
+    router.addEventListener('click', () => {
+      if (step === 1) {
+        output.textContent = 'Handshake gespeichert. Schließe das Kabel an (Weiter)…';
+        btnNext.style.display = 'inline-block';
+        step = 2;
+      }
+    });
+    btnNext.addEventListener('click', () => {
+      if (step === 2) {
+        output.textContent = 'Kabel verbunden. Lade die .cap Datei auf den Laptop hoch.';
+        step = 3;
+      }
+    });
+    laptop.addEventListener('click', () => {
+      if (step === 3) {
+        output.textContent = 'Datei ausgewählt. Passwort wird geknackt…';
+        setTimeout(() => {
+          output.textContent = 'Erfolg! Passwort: Pass1234';
+          btnNext.style.display = 'none';
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>
